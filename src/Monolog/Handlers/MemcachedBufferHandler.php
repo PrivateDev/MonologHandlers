@@ -1,6 +1,6 @@
 <?php
 
-namespace PrivateDev\Monolog\Handlers\MemcachedBufferHandler;
+namespace PrivateDev\Monolog\Handlers;
 
 use Monolog\Logger;
 use Monolog\Handler\AbstractHandler;
@@ -11,7 +11,7 @@ use Monolog\Handler\HandlerInterface;
  *
  * Class MemcachedBufferHandler
  *
- * @package App\Components\Monolog\MemcachedBufferHandler
+ * @package PrivateDev\Monolog\Handlers
  */
 class MemcachedBufferHandler extends AbstractHandler
 {
