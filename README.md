@@ -30,7 +30,7 @@ Requires TelegramBot's ID and Telegram chat/channel id or username
 
 ###MemcachedBufferHandler
 Requires Memcached driver. Pass it and your Handler, where you want to reduce message rate, to MemcachedBufferHandler controller.
-Hint. To pass more than one handler you may use Monolog's GroupHandler to group them.
+To pass more than one handler you may use Monolog's GroupHandler to group them.
 
 
 ###How to add custom Handler see your framework docs:
