@@ -1,6 +1,6 @@
 <?php
 
-namespace PrivateDev\Monolog\Formatters\TelegramFormatter;
+namespace PrivateDev\Monolog\Formatters;
 
 use Monolog\Formatter\LineFormatter;
 

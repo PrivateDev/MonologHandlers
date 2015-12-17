@@ -1,6 +1,6 @@
 <?php
 
-namespace PrivateDev\Monolog\Handlers\MemcachedBufferHandler;
+namespace PrivateDev\Monolog\Handlers;
 
 use Monolog\Logger;
 use Monolog\Handler\AbstractHandler;

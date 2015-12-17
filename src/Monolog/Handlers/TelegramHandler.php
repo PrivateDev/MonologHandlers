@@ -1,6 +1,6 @@
 <?php
 
-namespace PrivateDev\Monolog\Handlers\TelegramHandler;
+namespace PrivateDev\Monolog\Handlers;
 
 use Monolog\Logger;
 use Monolog\Handler\MailHandler;
