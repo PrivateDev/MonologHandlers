@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Components\Monolog\MemcachedBufferHandler;
+namespace PrivateDev\Monolog\Handlers\MemcachedBufferHandler;
 
+use Monolog\Logger;
 use Monolog\Handler\AbstractHandler;
 use Monolog\Handler\HandlerInterface;
-use Monolog\Logger;
 
 /**
  * Buffer exception records to Memcached, GROUP them by message and throw every {interval} second as ONE exception

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Components\Monolog\TelegramHandler\Exceptions;
+namespace PrivateDev\Monolog\Exceptions\TelegramException;
 
 class TelegramException extends \Exception
 {

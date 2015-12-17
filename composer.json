@@ -1,0 +1,20 @@
+{
+  "name": "privatedev/monolog-handlers",
+  "description": "Custom handlers for Monolog logger",
+  "authors": [
+    {
+      "name": "Bogdan Kolesnik",
+      "email": "pufik@mailpd.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "PrivateDev\\Monolog\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "monolog/monolog": "~1.0"
+  }
+}

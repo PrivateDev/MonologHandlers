@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Components\Monolog\TelegramHandler;
+namespace PrivateDev\Monolog\Handlers\TelegramHandler;
 
-use App\Components\Monolog\TelegramHandler\Exceptions\TelegramException;
-use Monolog\Handler\MailHandler;
 use Monolog\Logger;
+use Monolog\Handler\MailHandler;
+use PrivateDev\Monolog\Exceptions\TelegramException\TelegramException;
 
 class TelegramHandler extends MailHandler
 {
