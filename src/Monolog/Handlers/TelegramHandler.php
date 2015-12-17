@@ -4,7 +4,7 @@ namespace PrivateDev\Monolog\Handlers;
 
 use Monolog\Logger;
 use Monolog\Handler\MailHandler;
-use PrivateDev\Monolog\Exceptions\TelegramException\TelegramException;
+use PrivateDev\Monolog\Exceptions\TelegramException;
 
 class TelegramHandler extends MailHandler
 {

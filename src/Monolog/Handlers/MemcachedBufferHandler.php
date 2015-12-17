@@ -11,7 +11,7 @@ use Monolog\Handler\HandlerInterface;
  *
  * Class MemcachedBufferHandler
  *
- * @package App\Components\Monolog\MemcachedBufferHandler
+ * @package PrivateDev\Monolog\Handlers
  */
 class MemcachedBufferHandler extends AbstractHandler
 {
