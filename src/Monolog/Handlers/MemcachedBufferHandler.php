@@ -24,7 +24,7 @@ class MemcachedBufferHandler extends AbstractHandler
      * MemcachedBufferHandler constructor.
      *
      * @param HandlerInterface $handler
-     * @param \Memcached       $memcachedDriver You may pass your own cache drive if it implements [add(), get(), set()]
+     * @param \Memcached       $memcachedDriver You may pass your own cache driver if it implements add(), get(), set()
      * @param int              $interval        How often messages will be thrown. In seconds
      * @param int              $level
      * @param bool|true        $bubble
@@ -43,6 +43,13 @@ class MemcachedBufferHandler extends AbstractHandler
         parent::__construct($level, $bubble);
     }
 
+    /**
+     * Handles a record.
+     * Implemented method
+     *
+     * @param array $record
+     * @return bool
+     */
     public function handle(array $record)
     {
         if ($record['level'] < $this->level) {
@@ -103,7 +110,7 @@ class MemcachedBufferHandler extends AbstractHandler
     }
 
     /**
-     * Prepare message for handling record and handle
+     * Prepare message to handle record and handle
      *
      * @param $storedRecord
      */
