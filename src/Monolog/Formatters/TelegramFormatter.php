@@ -4,6 +4,13 @@ namespace PrivateDev\Monolog\Formatters;
 
 use Monolog\Formatter\LineFormatter;
 
+/**
+ * The same as LineFormatter. Allows to cut your message by {includeStacktraces} parameter
+ *
+ * Class TelegramFormatter
+ *
+ * @package PrivateDev\Monolog\Formatters
+ */
 class TelegramFormatter extends LineFormatter
 {
     /**

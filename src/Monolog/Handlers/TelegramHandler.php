@@ -6,6 +6,14 @@ use Monolog\Logger;
 use Monolog\Handler\MailHandler;
 use PrivateDev\Monolog\Exceptions\TelegramException;
 
+/**
+ * Allows you to send log messages to Telegram messenger via Telegram Bot.
+ * Bot ID and channel/chat ID are required
+ *
+ * Class TelegramHandler
+ *
+ * @package PrivateDev\Monolog\Handlers
+ */
 class TelegramHandler extends MailHandler
 {
     /**
