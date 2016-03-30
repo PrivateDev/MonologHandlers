@@ -14,7 +14,7 @@ Add the following to your composer.json:
   "repositories": [
         {
             "type": "vcs",
-            "url":  "https://github.com/PrivateDev/MonologHandlers.git"
+            "url":  "https://github.com/PrivateDev/monolog-handlers.git"
         }
     ],
 ```
@@ -27,6 +27,13 @@ Requires TelegramBot's ID and Telegram chat/channel id or username
 1. [Create a bot](https://core.telegram.org/bots#3-how-do-i-create-a-bot) and get it's ID ```(example: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11)```
 2. Create a channel/chat and get it's id or username. Add members to your chat
 3. Pass both params to TelegramHandler constructor.
+
+### SlackHandler
+
+Requires Slack webhook, channel and username
+1. Make a webhook ```(example: https://hooks.slack.com/services/XXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)```
+2. Create a channel and get it's username. Add members to your chat
+3. Pass params to SlackHandler constructor.
 
 ### MemcachedBufferHandler
 

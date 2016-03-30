@@ -4,37 +4,38 @@ namespace PrivateDev\Monolog\Formatters;
 
 use Monolog\Formatter\LineFormatter;
 
-/**
- * The same as LineFormatter. Allows to cut your message by {includeStacktraces} parameter
- *
- * Class TelegramFormatter
- *
- * @package PrivateDev\Monolog\Formatters
- */
-class TelegramFormatter extends LineFormatter
+class CustomLineFormatter extends LineFormatter
 {
     /**
      * Needle trace phrase
      */
-    const TRACE_STR = 'Stack trace';
+    protected $traceStartString;
 
     /**
-     * TelegramFormatter constructor.
+     * @var bool|true
+     */
+    protected $editFormatted;
+
+    /**
+     * CustomLineFormatter constructor.
      *
      * @param null|string $format
      * @param null|string $dateFormat
      * @param bool        $allowInlineLineBreaks
      * @param bool        $ignoreEmptyContextAndExtra
-     * @param bool        $includeStacktraces           Switch ON/OFF full stack trace
+     * @param bool|true   $editFormatted    Switch ON/OFF full stack trace
+     * @param string      $traceStartString String you trace starts from
      */
     public function __construct(
         $format,
         $dateFormat,
         $allowInlineLineBreaks,
         $ignoreEmptyContextAndExtra,
-        $includeStacktraces = true
+        $editFormatted = true,
+        $traceStartString = 'Stack trace'
     ) {
-        $this->includeStacktraces = $includeStacktraces;
+        $this->editStackTrace = $editFormatted;
+        $this->traceStartString = $traceStartString;
 
         parent::__construct($format, $dateFormat, $allowInlineLineBreaks, $ignoreEmptyContextAndExtra);
     }
@@ -46,23 +47,22 @@ class TelegramFormatter extends LineFormatter
     public function format(array $record)
     {
         $output = parent::format($record);
-
-        if (! $this->includeStacktraces) {
-            $output = $this->cutTrace($output);
+        if ($this->editFormatted) {
+            $output = $this->editFormatted($output);
         }
 
         return $output;
     }
 
     /**
-     * Cut trace from message
+     * Modify formatted message
      *
      * @param $message
      * @return string
      */
-    protected function cutTrace($message)
+    protected function editFormatted($message)
     {
-        $tracePosition = strpos($message, self::TRACE_STR);
+        $tracePosition = strpos($message, $this->traceStartString);
 
         if ($tracePosition) {
             $message = substr($message, 0, $tracePosition);
