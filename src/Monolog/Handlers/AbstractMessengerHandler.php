@@ -3,6 +3,7 @@
 namespace PrivateDev\Monolog\Handlers;
 
 use Monolog\Handler\AbstractProcessingHandler;
+use PrivateDev\Monolog\Exceptions\MessengerHandlerException;
 
 /**
  * Allows you to send log messages via curl.
@@ -22,8 +23,8 @@ abstract class AbstractMessengerHandler extends AbstractProcessingHandler
     {
         $ch = $this->makeCh($content);
 
-        curl_exec($ch);
-        $this->checkResult($ch);
+        $response = curl_exec($ch);
+        $this->checkResult($ch, $response);
         curl_close($ch);
     }
 
@@ -56,17 +57,18 @@ abstract class AbstractMessengerHandler extends AbstractProcessingHandler
     /**
      * Check sendMessage response
      *
-     * @param $ch
-     * @throws \Exception
+     * @param resource          $ch
+     * @param array|string|null $response
+     * @throws MessengerHandlerException
      */
-    private function checkResult($ch)
+    private function checkResult($ch, $response)
     {
         $info = curl_getinfo($ch);
         $code = (int) $info['http_code'];
 
-        if (!in_array($code, $this->successStatusCodes)) {
+        if (! in_array($code, $this->successStatusCodes)) {
             curl_close($ch);
-            throw new \Exception(json_encode($info));
+            throw new MessengerHandlerException(json_encode($response), $code);
         }
     }
 
