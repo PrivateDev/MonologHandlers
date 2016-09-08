@@ -45,7 +45,13 @@ class SlackFormatter extends CustomLineFormatter
 
     protected function editFormatted($record)
     {
-        list($formatted['pretext'], $text) = explode($this->traceStartString, $record['message']);
+        $formatted['pretext'] = 'Error';
+        $text = $record['message'];
+
+        $messages = explode($this->traceStartString, $record['message']);
+        if (count($messages) > 1) {
+            list($formatted['pretext'], $text) = explode($this->traceStartString, $record['message']);
+        }
 
         $formatted['title'] = $this->traceStartString;
         $formatted['text'] = '```' . $text . '```';
